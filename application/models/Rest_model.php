@@ -44,6 +44,16 @@ class Rest_model extends CI_model {
 		endif;
 	}
 
+
+	public function deleteFunc($ID=NULL){
+
+		if($ID != NULL):
+
+			$this->db->where('ID', $ID);
+			$this->db->delete('usuarios');
+		endif;
+	}
+
 }
 
 

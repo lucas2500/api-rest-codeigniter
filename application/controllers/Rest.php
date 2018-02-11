@@ -81,6 +81,22 @@ class Rest extends CI_Controller {
 
     }
 
+
+    public function deletarDados(){
+
+        if($this->input->get_request_header('API-KEY', TRUE)=="dgdtyfvvmth674gjrddjghdktudn64fdhd"){
+
+            $this->rest->deleteFunc($this->input->post('ID'));
+
+
+        } else{
+
+            echo "Erro ao validar o token";
+
+        }
+
+    }
+
 }
 
 

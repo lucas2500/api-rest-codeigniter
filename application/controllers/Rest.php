@@ -49,6 +49,38 @@ class Rest extends CI_Controller {
 
     }
 
+    public function editarDados(){
+
+        if($this->input->get_request_header('API-KEY', TRUE)=="dgdtyfvvmth674gjrddjghdktudn64fdhd"){
+
+            $query = $this->rest->getFuncById($this->input->post('ID'));
+
+            echo json_encode($query);
+
+        } else{
+
+            echo "Erro ao validar o token";
+        }
+
+    }
+
+    public function atualizarDados(){
+
+        if($this->input->get_request_header('API-KEY', TRUE)=="dgdtyfvvmth674gjrddjghdktudn64fdhd"){
+
+            $data['nome'] = $this->input->post('nome');
+            $data['idade'] = $this->input->post('idade');
+            $data['cargo'] = $this->input->post('cargo');
+
+            $this->rest->editReg($data, $this->input->post('ID'));
+
+        } else{
+
+            echo "Erro ao validar o token";
+        }
+
+    }
+
 }
 
 
